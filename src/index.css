@@ -1,11 +1,18 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
+/* LottoNexus Custom Styles */
 
 @layer base {
   :root {
+    /* LottoNexus Color Variables */
+    --lottonexus-midnight: #0a0f2c;
+    --lottonexus-cyan: #00f6ff;
+    --lottonexus-white: #e7e7e7;
+    --lottonexus-purple: #9a4eff;
+    
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
@@ -35,22 +42,6 @@
     --ring: 222.2 84% 4.9%;
 
     --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
@@ -81,14 +72,6 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -100,4 +83,103 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* LottoNexus Specific Styles */
+.lottonexus-bg {
+  background: linear-gradient(135deg, var(--lottonexus-midnight) 0%, #1a1a3e 100%);
+  min-height: 100vh;
+}
+
+.neon-text {
+  color: var(--lottonexus-cyan);
+  text-shadow: 0 0 10px var(--lottonexus-cyan);
+}
+
+.glow-box {
+  box-shadow: 0 0 20px rgba(0, 246, 255, 0.3);
+  border: 1px solid var(--lottonexus-cyan);
+}
+
+.number-ball {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--lottonexus-purple), var(--lottonexus-cyan));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  box-shadow: 0 0 15px rgba(154, 78, 255, 0.5);
+  animation: float 3s ease-in-out infinite;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+}
+
+.starfield {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--lottonexus-cyan);
+  border-radius: 50%;
+  animation: twinkle 2s linear infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+.countdown-timer {
+  font-family: 'Orbitron', monospace;
+  font-size: 2.5rem;
+  color: var(--lottonexus-cyan);
+  text-shadow: 0 0 20px var(--lottonexus-cyan);
+}
+
+.btn-electric {
+  background: linear-gradient(135deg, var(--lottonexus-purple), var(--lottonexus-cyan));
+  border: none;
+  color: white;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-electric:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(154, 78, 255, 0.4);
+  color: white;
+}
+
+.nav-link-custom {
+  color: var(--lottonexus-white) !important;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-link-custom:hover {
+  color: var(--lottonexus-cyan) !important;
+  text-shadow: 0 0 10px var(--lottonexus-cyan);
+}
+
+.active-tab {
+  color: var(--lottonexus-cyan) !important;
+  border-bottom: 2px solid var(--lottonexus-cyan);
 }
