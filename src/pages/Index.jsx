@@ -15,8 +15,12 @@ const Index = () => {
       <HeroSection />
       <LiveResults />
       <SmartPicks />
-      <StatsAnalytics />
-      <PastResults />
+      <div className="stats-analytics-bg">
+        <StatsAnalytics />
+      </div>
+      <div className="past-results-bg">
+        <PastResults />
+      </div>
       <Footer />
     </div>
   );

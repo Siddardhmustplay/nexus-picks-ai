@@ -7,11 +7,16 @@
 
 @layer base {
   :root {
-    /* LottoNexus Color Variables */
+    /* LottoNexus Color Variables - Updated Palette */
     --lottonexus-midnight: #0a0f2c;
+    --lottonexus-dark-purple: #1a1a3e;
     --lottonexus-cyan: #00f6ff;
     --lottonexus-white: #e7e7e7;
     --lottonexus-purple: #9a4eff;
+    --lottonexus-dark-blue: #0d1b2a;
+    --lottonexus-navy: #1b263b;
+    --lottonexus-gold: #ffd700;
+    --lottonexus-green: #00ff88;
     
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
@@ -82,21 +87,46 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Orbitron', monospace;
+    letter-spacing: 1px;
   }
 }
 
-/* LottoNexus Specific Styles */
+/* LottoNexus Main Background - Dark Gradient */
 .lottonexus-bg {
-  background: linear-gradient(135deg, var(--lottonexus-midnight) 0%, #1a1a3e 100%);
+  background: linear-gradient(135deg, var(--lottonexus-midnight) 0%, var(--lottonexus-dark-purple) 30%, var(--lottonexus-dark-blue) 70%, var(--lottonexus-navy) 100%);
   min-height: 100vh;
 }
 
+/* Section-specific backgrounds */
+.hero-section-bg {
+  background: linear-gradient(135deg, var(--lottonexus-midnight) 0%, var(--lottonexus-dark-purple) 100%);
+}
+
+.live-results-bg {
+  background: linear-gradient(135deg, var(--lottonexus-dark-blue) 0%, var(--lottonexus-navy) 100%);
+}
+
+.smart-picks-bg {
+  background: linear-gradient(135deg, var(--lottonexus-navy) 0%, var(--lottonexus-dark-purple) 100%);
+}
+
+.stats-analytics-bg {
+  background: linear-gradient(135deg, var(--lottonexus-dark-purple) 0%, var(--lottonexus-midnight) 100%);
+}
+
+.past-results-bg {
+  background: linear-gradient(135deg, var(--lottonexus-dark-blue) 0%, var(--lottonexus-midnight) 100%);
+}
+
+/* Enhanced Typography */
 .neon-text {
   color: var(--lottonexus-cyan);
-  text-shadow: 0 0 10px var(--lottonexus-cyan);
+  text-shadow: 0 0 10px var(--lottonexus-cyan), 0 0 20px var(--lottonexus-cyan), 0 0 30px var(--lottonexus-cyan);
   font-family: 'Orbitron', monospace;
-  font-weight: bold;
-  letter-spacing: 2px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
 }
 
 .glow-box {
@@ -104,6 +134,7 @@
   border: 1px solid var(--lottonexus-cyan);
 }
 
+/* Enhanced Number Balls with Different Colors */
 .number-ball {
   width: 60px;
   height: 60px;
@@ -113,61 +144,126 @@
   align-items: center;
   justify-content: center;
   color: white;
-  font-weight: bold;
+  font-weight: 900;
   font-size: 1.2rem;
-  box-shadow: 0 0 15px rgba(154, 78, 255, 0.5);
+  box-shadow: 0 0 15px rgba(154, 78, 255, 0.5), inset 0 0 10px rgba(255, 255, 255, 0.2);
   animation: float 3s ease-in-out infinite;
   font-family: 'Orbitron', monospace;
+  border: 3px dotted rgba(255, 255, 255, 0.8);
 }
 
-/* Dotted Border Containers - Main Style */
+.number-ball-gold {
+  background: linear-gradient(135deg, var(--lottonexus-gold), #ff8c00);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+  border: 3px dotted rgba(255, 255, 255, 0.9);
+}
+
+.number-ball-green {
+  background: linear-gradient(135deg, var(--lottonexus-green), #00cc66);
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
+  border: 3px dotted rgba(255, 255, 255, 0.9);
+}
+
+/* Dotted Border Containers - Enhanced Styles */
 .dotted-container {
   border: 4px dotted var(--lottonexus-cyan);
-  background: rgba(255, 255, 255, 0.05);
-  padding: 20px;
+  background: rgba(0, 246, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 25px;
   margin: 15px 0;
   position: relative;
+  box-shadow: inset 0 0 20px rgba(0, 246, 255, 0.1);
 }
 
 .dotted-container-large {
   border: 6px dotted var(--lottonexus-cyan);
   background: rgba(0, 246, 255, 0.08);
-  padding: 30px;
-  margin: 20px 0;
+  backdrop-filter: blur(15px);
+  padding: 35px;
+  margin: 25px 0;
+  box-shadow: 0 0 30px rgba(0, 246, 255, 0.2), inset 0 0 25px rgba(0, 246, 255, 0.1);
 }
 
-/* Glass card with dotted borders */
+/* Specialized dotted containers with different colors */
+.dotted-container-purple {
+  border: 4px dotted var(--lottonexus-purple);
+  background: rgba(154, 78, 255, 0.08);
+  box-shadow: inset 0 0 20px rgba(154, 78, 255, 0.1);
+}
+
+.dotted-container-gold {
+  border: 4px dotted var(--lottonexus-gold);
+  background: rgba(255, 215, 0, 0.08);
+  box-shadow: inset 0 0 20px rgba(255, 215, 0, 0.1);
+}
+
+.dotted-container-green {
+  border: 4px dotted var(--lottonexus-green);
+  background: rgba(0, 255, 136, 0.08);
+  box-shadow: inset 0 0 20px rgba(0, 255, 136, 0.1);
+}
+
+/* Glass card with enhanced dotted borders */
 .glass-card {
   background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  border: 3px dotted rgba(0, 246, 255, 0.8);
-  border-radius: 0px; /* Remove rounded corners for retro look */
-  padding: 20px;
-  box-shadow: inset 0 0 20px rgba(0, 246, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border: 4px dotted rgba(0, 246, 255, 0.8);
+  border-radius: 0px;
+  padding: 25px;
+  box-shadow: inset 0 0 25px rgba(0, 246, 255, 0.1), 0 0 20px rgba(0, 246, 255, 0.2);
 }
 
-/* Jackpot display boxes */
+.glass-card-purple {
+  border: 4px dotted rgba(154, 78, 255, 0.8);
+  background: rgba(154, 78, 255, 0.08);
+  box-shadow: inset 0 0 25px rgba(154, 78, 255, 0.1), 0 0 20px rgba(154, 78, 255, 0.2);
+}
+
+.glass-card-gold {
+  border: 4px dotted rgba(255, 215, 0, 0.8);
+  background: rgba(255, 215, 0, 0.08);
+  box-shadow: inset 0 0 25px rgba(255, 215, 0, 0.1), 0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+/* Jackpot display boxes with enhanced styling */
 .jackpot-box {
-  border: 4px dotted var(--lottonexus-cyan);
-  background: rgba(255, 255, 255, 0.1);
-  padding: 15px;
+  border: 5px dotted var(--lottonexus-cyan);
+  background: rgba(0, 246, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 20px;
   text-align: center;
   font-family: 'Orbitron', monospace;
   position: relative;
+  box-shadow: 0 0 25px rgba(0, 246, 255, 0.3);
+}
+
+.jackpot-box-gold {
+  border: 5px dotted var(--lottonexus-gold);
+  background: rgba(255, 215, 0, 0.1);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
 }
 
 .jackpot-amount {
-  font-size: 2rem;
+  font-size: 2.2rem;
   color: var(--lottonexus-cyan);
-  font-weight: bold;
+  font-weight: 900;
   text-shadow: 0 0 15px var(--lottonexus-cyan);
+  font-family: 'Orbitron', monospace;
+  letter-spacing: 2px;
 }
 
-/* Countdown timer with dotted border */
+.jackpot-amount-gold {
+  color: var(--lottonexus-gold);
+  text-shadow: 0 0 15px var(--lottonexus-gold);
+}
+
+/* Countdown timer with enhanced dotted border */
 .countdown-container {
-  border: 5px dotted var(--lottonexus-purple);
-  background: rgba(154, 78, 255, 0.1);
-  padding: 20px;
+  border: 6px dotted var(--lottonexus-purple);
+  background: rgba(154, 78, 255, 0.12);
+  backdrop-filter: blur(10px);
+  padding: 25px;
+  box-shadow: 0 0 30px rgba(154, 78, 255, 0.3);
 }
 
 .starfield {
@@ -196,114 +292,147 @@
 
 .countdown-timer {
   font-family: 'Orbitron', monospace;
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   color: var(--lottonexus-cyan);
-  text-shadow: 0 0 20px var(--lottonexus-cyan);
-  font-weight: bold;
+  text-shadow: 0 0 25px var(--lottonexus-cyan);
+  font-weight: 900;
+  letter-spacing: 2px;
 }
 
-/* Updated button styles */
+/* Enhanced button styles with dotted borders */
 .btn-electric {
   background: linear-gradient(135deg, var(--lottonexus-purple), var(--lottonexus-cyan));
-  border: 3px dotted white;
+  border: 4px dotted white;
   color: white;
-  font-weight: 600;
+  font-weight: 900;
   font-family: 'Orbitron', monospace;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   transition: all 0.3s ease;
-  border-radius: 0px; /* Square corners for retro look */
+  border-radius: 0px;
+  padding: 12px 25px;
+  font-size: 0.9rem;
 }
 
 .btn-electric:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(154, 78, 255, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(154, 78, 255, 0.4);
   color: white;
   border-color: var(--lottonexus-cyan);
+  text-shadow: 0 0 10px white;
 }
 
-/* Navigation styles */
+.btn-electric-gold {
+  background: linear-gradient(135deg, var(--lottonexus-gold), #ff8c00);
+  border: 4px dotted white;
+}
+
+.btn-electric-gold:hover {
+  box-shadow: 0 12px 30px rgba(255, 215, 0, 0.4);
+  border-color: var(--lottonexus-gold);
+}
+
+/* Navigation styles with enhanced dotted elements */
 .nav-link-custom {
   color: var(--lottonexus-white) !important;
-  font-weight: 500;
+  font-weight: 700;
   font-family: 'Orbitron', monospace;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   transition: all 0.3s ease;
+  padding: 10px 15px !important;
 }
 
 .nav-link-custom:hover {
   color: var(--lottonexus-cyan) !important;
-  text-shadow: 0 0 10px var(--lottonexus-cyan);
+  text-shadow: 0 0 15px var(--lottonexus-cyan);
+  border: 2px dotted var(--lottonexus-cyan);
+  border-radius: 0px;
 }
 
 .active-tab {
   color: var(--lottonexus-cyan) !important;
-  border-bottom: 3px dotted var(--lottonexus-cyan);
+  border: 3px dotted var(--lottonexus-cyan) !important;
+  background: rgba(0, 246, 255, 0.1) !important;
+  text-shadow: 0 0 10px var(--lottonexus-cyan);
 }
 
-/* Retro table styles */
+/* Enhanced table styles */
 .retro-table {
-  border: 4px dotted var(--lottonexus-cyan);
-  background: rgba(255, 255, 255, 0.05);
+  border: 5px dotted var(--lottonexus-cyan);
+  background: rgba(0, 246, 255, 0.05);
+  backdrop-filter: blur(10px);
 }
 
 .retro-table th {
-  border-bottom: 3px dotted var(--lottonexus-cyan);
+  border-bottom: 4px dotted var(--lottonexus-cyan);
   font-family: 'Orbitron', monospace;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  font-weight: 900;
+  background: rgba(0, 246, 255, 0.1);
 }
 
 .retro-table td {
-  border-bottom: 1px dotted rgba(0, 246, 255, 0.3);
+  border-bottom: 2px dotted rgba(0, 246, 255, 0.3);
+  font-family: 'Orbitron', monospace;
 }
 
-/* Form controls with dotted borders */
+/* Enhanced form controls */
 .form-control, .form-select {
-  border: 2px dotted var(--lottonexus-cyan) !important;
-  background: rgba(255, 255, 255, 0.08) !important;
+  border: 3px dotted var(--lottonexus-cyan) !important;
+  background: rgba(0, 246, 255, 0.08) !important;
   border-radius: 0px !important;
   color: var(--lottonexus-white) !important;
   font-family: 'Orbitron', monospace;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 12px 15px !important;
 }
 
 .form-control:focus, .form-select:focus {
   border-color: var(--lottonexus-purple) !important;
-  box-shadow: 0 0 15px rgba(154, 78, 255, 0.3) !important;
+  box-shadow: 0 0 20px rgba(154, 78, 255, 0.4) !important;
+  background: rgba(154, 78, 255, 0.1) !important;
 }
 
-/* Stats bars with dotted containers */
+/* Stats bars with enhanced dotted containers */
 .stats-bar-container {
-  border: 2px dotted var(--lottonexus-cyan);
-  background: rgba(255, 255, 255, 0.05);
-  padding: 10px;
-  margin: 5px 0;
+  border: 3px dotted var(--lottonexus-cyan);
+  background: rgba(0, 246, 255, 0.08);
+  backdrop-filter: blur(8px);
+  padding: 15px;
+  margin: 8px 0;
+  box-shadow: inset 0 0 15px rgba(0, 246, 255, 0.1);
 }
 
-/* Live indicator */
+/* Enhanced live indicator */
 .live-indicator {
-  border: 3px dotted #00ff00;
-  background: rgba(0, 255, 0, 0.1);
-  padding: 5px 15px;
+  border: 4px dotted #00ff00;
+  background: rgba(0, 255, 0, 0.15);
+  backdrop-filter: blur(5px);
+  padding: 8px 20px;
   color: #00ff00;
   font-family: 'Orbitron', monospace;
-  font-weight: bold;
+  font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   animation: pulse-green 2s infinite;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
 }
 
 @keyframes pulse-green {
   0%, 100% { 
     border-color: #00ff00;
     color: #00ff00;
-    text-shadow: 0 0 10px #00ff00;
+    text-shadow: 0 0 15px #00ff00;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
   }
   50% { 
     border-color: #00aa00;
     color: #00aa00;
-    text-shadow: 0 0 20px #00aa00;
+    text-shadow: 0 0 25px #00aa00;
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
   }
 }
 
@@ -316,18 +445,62 @@
   }
 }
 
-/* Pagination with dotted style */
+/* Enhanced pagination */
 .page-link {
-  border: 2px dotted var(--lottonexus-cyan) !important;
-  background: rgba(255, 255, 255, 0.05) !important;
+  border: 3px dotted var(--lottonexus-cyan) !important;
+  background: rgba(0, 246, 255, 0.08) !important;
   color: var(--lottonexus-cyan) !important;
   font-family: 'Orbitron', monospace !important;
+  font-weight: 700 !important;
   border-radius: 0px !important;
-  margin: 0 2px !important;
+  margin: 0 3px !important;
+  padding: 10px 15px !important;
 }
 
 .page-item.active .page-link {
   background: var(--lottonexus-cyan) !important;
   color: var(--lottonexus-midnight) !important;
   border-color: var(--lottonexus-cyan) !important;
+  font-weight: 900 !important;
+}
+
+/* Progress bars with dotted style */
+.progress {
+  border: 2px dotted rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+}
+
+.progress-bar {
+  font-family: 'Orbitron', monospace;
+  font-weight: 700;
+}
+
+/* Input group styling */
+.input-group-text {
+  font-family: 'Orbitron', monospace !important;
+  font-weight: 700 !important;
+  border: 3px dotted var(--lottonexus-cyan) !important;
+  border-radius: 0px !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .countdown-timer {
+    font-size: 2rem;
+  }
+  
+  .jackpot-amount {
+    font-size: 1.8rem;
+  }
+  
+  .number-ball {
+    width: 50px;
+    height: 50px;
+    font-size: 1rem;
+  }
+  
+  .dotted-container, .dotted-container-large {
+    padding: 20px;
+  }
 }
