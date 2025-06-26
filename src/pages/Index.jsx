@@ -10,7 +10,7 @@ import Footer from '../components/Footer';
 
 const Index = () => {
   return (
-    <div className="lottonexus-bg">
+    <div className="lottonexus-bg" style={{ margin: 0, padding: 0 }}>
       <Navigation />
       <HeroSection />
       <LiveResults />

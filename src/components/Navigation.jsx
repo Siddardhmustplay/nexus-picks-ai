@@ -14,50 +14,62 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="navbar navbar-expand-lg" style={{ backgroundColor: 'var(--lottonexus-midnight)' }}>
+    <nav className="dotted-container-large mb-0" style={{ 
+      backgroundColor: 'var(--lottonexus-midnight)',
+      borderTop: '6px dotted var(--lottonexus-cyan)',
+      borderBottom: '6px dotted var(--lottonexus-cyan)',
+      borderLeft: 'none',
+      borderRight: 'none',
+      margin: '0'
+    }}>
       <div className="container-fluid">
-        <a className="navbar-brand d-flex align-items-center" href="#">
+        <div className="d-flex justify-content-between align-items-center">
+          {/* Brand */}
           <div className="d-flex align-items-center">
-            <div className="number-ball me-3" style={{ width: '40px', height: '40px', fontSize: '1rem' }}>
-              <Zap size={20} />
+            <div className="number-ball me-3" style={{ width: '50px', height: '50px', fontSize: '1.2rem' }}>
+              <Zap size={24} />
             </div>
-            <span className="neon-text fw-bold" style={{ fontFamily: 'Orbitron', fontSize: '1.5rem' }}>
+            <span className="neon-text fw-bold" style={{ fontFamily: 'Orbitron', fontSize: '1.8rem' }}>
               LottoNexus
             </span>
           </div>
-        </a>
 
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span className="navbar-toggler-icon"></span>
-        </button>
+          {/* Navigation Links */}
+          <div className="d-flex align-items-center">
+            <div className="d-flex me-4">
+              {navItems.map((item) => (
+                <div key={item.id} className="mx-2">
+                  <button 
+                    className={`nav-link-custom d-flex align-items-center btn ${activeTab === item.id ? 'active-tab' : ''}`}
+                    onClick={() => setActiveTab(item.id)}
+                    style={{
+                      background: 'transparent',
+                      border: activeTab === item.id ? '3px dotted var(--lottonexus-cyan)' : '3px dotted transparent',
+                      padding: '8px 15px'
+                    }}
+                  >
+                    <item.icon size={18} className="me-2" />
+                    {item.label}
+                  </button>
+                </div>
+              ))}
+            </div>
 
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav mx-auto">
-            {navItems.map((item) => (
-              <li className="nav-item mx-2" key={item.id}>
-                <a 
-                  className={`nav-link nav-link-custom d-flex align-items-center ${activeTab === item.id ? 'active-tab' : ''}`}
-                  href="#" 
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setActiveTab(item.id);
-                  }}
-                >
-                  <item.icon size={18} className="me-2" />
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-
-          <div className="d-flex">
-            <button className="btn btn-electric btn-sm me-2">
-              <User size={16} className="me-1" />
-              Login
-            </button>
-            <button className="btn btn-outline-light btn-sm">
-              Register
-            </button>
+            {/* Auth Buttons */}
+            <div className="d-flex">
+              <button className="btn btn-electric btn-sm me-2">
+                <User size={16} className="me-1" />
+                Login
+              </button>
+              <button className="btn-electric btn-sm" style={{
+                background: 'transparent',
+                border: '3px dotted var(--lottonexus-purple)',
+                color: 'var(--lottonexus-purple)',
+                padding: '8px 15px'
+              }}>
+                Register
+              </button>
+            </div>
           </div>
         </div>
       </div>
