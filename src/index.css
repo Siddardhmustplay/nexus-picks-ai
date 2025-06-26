@@ -94,6 +94,9 @@
 .neon-text {
   color: var(--lottonexus-cyan);
   text-shadow: 0 0 10px var(--lottonexus-cyan);
+  font-family: 'Orbitron', monospace;
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 
 .glow-box {
@@ -114,13 +117,57 @@
   font-size: 1.2rem;
   box-shadow: 0 0 15px rgba(154, 78, 255, 0.5);
   animation: float 3s ease-in-out infinite;
+  font-family: 'Orbitron', monospace;
 }
 
+/* Dotted Border Containers - Main Style */
+.dotted-container {
+  border: 4px dotted var(--lottonexus-cyan);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  margin: 15px 0;
+  position: relative;
+}
+
+.dotted-container-large {
+  border: 6px dotted var(--lottonexus-cyan);
+  background: rgba(0, 246, 255, 0.08);
+  padding: 30px;
+  margin: 20px 0;
+}
+
+/* Glass card with dotted borders */
 .glass-card {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 15px;
+  border: 3px dotted rgba(0, 246, 255, 0.8);
+  border-radius: 0px; /* Remove rounded corners for retro look */
+  padding: 20px;
+  box-shadow: inset 0 0 20px rgba(0, 246, 255, 0.1);
+}
+
+/* Jackpot display boxes */
+.jackpot-box {
+  border: 4px dotted var(--lottonexus-cyan);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  text-align: center;
+  font-family: 'Orbitron', monospace;
+  position: relative;
+}
+
+.jackpot-amount {
+  font-size: 2rem;
+  color: var(--lottonexus-cyan);
+  font-weight: bold;
+  text-shadow: 0 0 15px var(--lottonexus-cyan);
+}
+
+/* Countdown timer with dotted border */
+.countdown-container {
+  border: 5px dotted var(--lottonexus-purple);
+  background: rgba(154, 78, 255, 0.1);
+  padding: 20px;
 }
 
 .starfield {
@@ -152,25 +199,36 @@
   font-size: 2.5rem;
   color: var(--lottonexus-cyan);
   text-shadow: 0 0 20px var(--lottonexus-cyan);
+  font-weight: bold;
 }
 
+/* Updated button styles */
 .btn-electric {
   background: linear-gradient(135deg, var(--lottonexus-purple), var(--lottonexus-cyan));
-  border: none;
+  border: 3px dotted white;
   color: white;
   font-weight: 600;
+  font-family: 'Orbitron', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   transition: all 0.3s ease;
+  border-radius: 0px; /* Square corners for retro look */
 }
 
 .btn-electric:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(154, 78, 255, 0.4);
   color: white;
+  border-color: var(--lottonexus-cyan);
 }
 
+/* Navigation styles */
 .nav-link-custom {
   color: var(--lottonexus-white) !important;
   font-weight: 500;
+  font-family: 'Orbitron', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   transition: all 0.3s ease;
 }
 
@@ -181,5 +239,95 @@
 
 .active-tab {
   color: var(--lottonexus-cyan) !important;
-  border-bottom: 2px solid var(--lottonexus-cyan);
+  border-bottom: 3px dotted var(--lottonexus-cyan);
+}
+
+/* Retro table styles */
+.retro-table {
+  border: 4px dotted var(--lottonexus-cyan);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.retro-table th {
+  border-bottom: 3px dotted var(--lottonexus-cyan);
+  font-family: 'Orbitron', monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.retro-table td {
+  border-bottom: 1px dotted rgba(0, 246, 255, 0.3);
+}
+
+/* Form controls with dotted borders */
+.form-control, .form-select {
+  border: 2px dotted var(--lottonexus-cyan) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-radius: 0px !important;
+  color: var(--lottonexus-white) !important;
+  font-family: 'Orbitron', monospace;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--lottonexus-purple) !important;
+  box-shadow: 0 0 15px rgba(154, 78, 255, 0.3) !important;
+}
+
+/* Stats bars with dotted containers */
+.stats-bar-container {
+  border: 2px dotted var(--lottonexus-cyan);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px;
+  margin: 5px 0;
+}
+
+/* Live indicator */
+.live-indicator {
+  border: 3px dotted #00ff00;
+  background: rgba(0, 255, 0, 0.1);
+  padding: 5px 15px;
+  color: #00ff00;
+  font-family: 'Orbitron', monospace;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+  0%, 100% { 
+    border-color: #00ff00;
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00;
+  }
+  50% { 
+    border-color: #00aa00;
+    color: #00aa00;
+    text-shadow: 0 0 20px #00aa00;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Pagination with dotted style */
+.page-link {
+  border: 2px dotted var(--lottonexus-cyan) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: var(--lottonexus-cyan) !important;
+  font-family: 'Orbitron', monospace !important;
+  border-radius: 0px !important;
+  margin: 0 2px !important;
+}
+
+.page-item.active .page-link {
+  background: var(--lottonexus-cyan) !important;
+  color: var(--lottonexus-midnight) !important;
+  border-color: var(--lottonexus-cyan) !important;
 }
